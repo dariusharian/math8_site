@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ریاضی هشتم | یادگیری و بازی</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+
+    <header>
+        <h1>🎓 ریاضی هشتم</h1>
+        <p>یاد بگیر، تمرین کن، بازی کن!</p>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">🏠 خانه</a>
+        <a href="quiz.html">📝 آزمون</a>
+        <a href="games.html">🎮 بازی‌ها</a>
+        <a href="leaderboard.html">🏆 لیدربورد</a>
+    </nav>
+
+    <main>
+        <section class="cards">
+            <div class="card" onclick="location.href='quiz.html'">
+                <div class="icon">📝</div>
+                <h2>آزمون ریاضی</h2>
+                <p>سوالات فصل به فصل کتاب هشتم با پاسخ تشریحی</p>
+            </div>
+            <div class="card" onclick="location.href='games.html'">
+                <div class="icon">🎮</div>
+                <h2>بازی‌های ریاضی</h2>
+                <p>۴ بازی جذاب برای یادگیری بهتر</p>
+            </div>
+            <div class="card" onclick="location.href='leaderboard.html'">
+                <div class="icon">🏆</div>
+                <h2>لیدربورد</h2>
+                <p>امتیازات خود را با دیگران مقایسه کن</p>
+            </div>
+        </section>
+
+        <section class="stats-box">
+            <h2>📊 آمار شما</h2>
+            <div class="stats-grid">
+                <div class="stat"><span id="totalQuiz">0</span><p>آزمون‌ها</p></div>
+                <div class="stat"><span id="totalGames">0</span><p>بازی‌ها</p></div>
+                <div class="stat"><span id="bestScore">0</span><p>بهترین امتیاز</p></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script>
+        updateHomeStats();
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی‌های ریاضی</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    <header>
+        <h1>🎮 بازی‌های ریاضی</h1>
+        <p>یادگیری با بازی، لذت‌بخش‌تر است!</p>
+    </header>
+    <nav>
+        <a href="index.html">🏠 خانه</a>
+        <a href="quiz.html">📝 آزمون</a>
+        <a href="games.html" class="active">🎮 بازی‌ها</a>
+        <a href="leaderboard.html">🏆 لیدربورد</a>
+    </nav>
+
+    <main>
+        <div class="cards" id="gameMenu">
+            <div class="card" onclick="openGame('speed')">
+                <div class="icon">⚡</div>
+                <h2>ریاضی سریع</h2>
+                <p>در ۶۰ ثانیه بیشترین جواب درست رو بده</p>
+            </div>
+            <div class="card" onclick="openGame('guess')">
+                <div class="icon">🎯</div>
+                <h2>حدس عدد</h2>
+                <p>عدد مخفی بین ۱ تا ۱۰۰ رو حدس بزن</p>
+            </div>
+            <div class="card" onclick="openGame('equation')">
+                <div class="icon">🔢</div>
+                <h2>معادله‌ساز</h2>
+                <p>مقدار x را پیدا کن</p>
+            </div>
+            <div class="card" onclick="openGame('puzzle')">
+                <div class="icon">🧩</div>
+                <h2>پازل جمع</h2>
+                <p>جفت‌های مساوی رو پیدا کن</p>
+            </div>
+        </div>
+
+        <div class="game-card" id="game-speed" style="display:none">
+            <h2>⚡ ریاضی سریع</h2>
+            <div class="game-stats">
+                <span>⏰ زمان: <span id="timer">60</span></span>
+                <span>⭐ امتیاز: <span id="speedScore">0</span></span>
+            </div>
+            <div class="problem" id="speedProblem">آماده‌ای؟</div>
+            <div style="text-align:center">
+                <input type="number" id="speedAnswer" placeholder="جواب" disabled>
+                <button onclick="submitSpeed()" id="speedSubmit" disabled>ثبت</button>
+                <button onclick="startSpeed()" id="speedStart">شروع بازی</button>
+            </div>
+        </div>
+
+        <div class="game-card" id="game-guess" style="display:none">
+            <h2>🎯 حدس عدد</h2>
+            <p style="margin:15px 0">یک عدد بین ۱ تا ۱۰۰ انتخاب شده. حدس بزن!</p>
+            <div class="game-stats">
+                <span>🔢 تلاش: <span id="guessCount">0</span></span>
+            </div>
+            <div style="text-align:center">
+                <input type="number" id="guessInput" placeholder="عدد؟" min="1" max="100" disabled>
+                <button onclick="checkGuess()" id="guessBtn" disabled>حدس</button>
+                <button onclick="startGuess()">شروع بازی</button>
+            </div>
+            <p id="guessHint" style="text-align:center;margin-top:20px;font-weight:700;font-size:1.2rem"></p>
+        </div>
+
+        <div class="game-card" id="game-equation" style="display:none">
+            <h2>🔢 معادله‌ساز</h2>
+            <div class="game-stats">
+                <span>⭐ امتیاز: <span id="eqScore">0</span></span>
+            </div>
+            <div class="problem" id="equationProblem">x = ?</div>
+            <div style="text-align:center">
+                <input type="number" id="eqAnswer" placeholder="x = ?">
+                <button onclick="submitEq()">ثبت</button>
+                <button onclick="newEquation()">معادله جدید</button>
+            </div>
+            <p id="eqHint" style="text-align:center;margin-top:20px;font-weight:700"></p>
+        </div>
+
+        <div class="game-card" id="game-puzzle" style="display:none">
+        <h2>🧩 پازل جمع</h2>
+            <p style="margin:15px 0">دو کارتی که جمعشان یکسان است را پشت سر هم بزن!</p>
+            <div class="game-stats">
+                <span>🎯 جفت‌ها: <span id="pairsFound">0</span>/۶</span>
+                <span>⭐ امتیاز: <span id="puzzleScore">0</span></span>
+            </div>
+            <div class="puzzle-grid" id="puzzleGrid"></div>
+            <div style="text-align:center">
+                <button onclick="initPuzzle()">🔄 بازی جدید</button>
+            </div>
+        </div>
+
+        <div style="text-align:center;margin-top:20px">
+            <button onclick="backToMenu()" style="padding:14px 30px;background:var(--primary);color:white;border:none;border-radius:10px;cursor:pointer;font-size:16px;font-weight:600">⬅️ بازگشت به منو</button>
+        </div>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/games.js"></script>
+</body>
+</html>

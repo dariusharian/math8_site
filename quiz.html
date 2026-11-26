@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آزمون ریاضی هشتم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    <header>
+        <h1>📝 آزمون ریاضی هشتم</h1>
+        <p>فصل مورد نظر را انتخاب کن</p>
+    </header>
+    <nav>
+        <a href="index.html">🏠 خانه</a>
+        <a href="quiz.html" class="active">📝 آزمون</a>
+        <a href="games.html">🎮 بازی‌ها</a>
+        <a href="leaderboard.html">🏆 لیدربورد</a>
+    </nav>
+
+    <main>
+        <div class="quiz-container" id="startScreen">
+            <h2>📚 انتخاب فصل</h2>
+            <div class="chapter-select" id="chapterSelect"></div>
+        </div>
+
+        <div class="quiz-container" id="quizScreen" style="display:none">
+            <div class="score-display">
+                <span>امتیاز: <span id="score">0</span></span>
+                <span id="progressText">سوال ۱ از ۸</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+            <div class="question-box">
+                <h3 id="questionText"></h3>
+                <div id="options"></div>
+                <div class="explain-box" id="explainBox"></div>
+            </div>
+            <button id="nextBtn" onclick="nextQuestion()" style="display:none">سوال بعدی ➡️</button>
+        </div>
+
+        <div class="quiz-container" id="endScreen" style="display:none">
+            <h2>🎉 پایان آزمون!</h2>
+            <p style="font-size:1.5rem;margin:20px 0">امتیاز شما: <strong id="finalScore">0</strong></p>
+            <p id="endMsg" style="margin-bottom:20px"></p>
+            <button onclick="location.reload()">🔄 آزمون دوباره</button>
+            <button onclick="location.href='leaderboard.html'">🏆 مشاهده لیدربورد</button>
+        </div>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
